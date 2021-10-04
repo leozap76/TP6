@@ -183,16 +183,7 @@ public class VistaBorrarCliente extends javax.swing.JInternalFrame {
         jtTelefono.setText("");
     }
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
-        
-        try{
-             long x=Long.parseLong(jtDni.getText());
-        
-        }catch(NullPointerException np){
-        
-            JOptionPane.showMessageDialog(this, "El Cliente no se encuentra");
-            jtDni.requestFocus();
-        }
-        
+       
         String dni=jtDni.getText();
        
         Map<String,Cliente> l = Interfaz.getDirectorio().buscarClienteDni(dni);
@@ -200,13 +191,16 @@ public class VistaBorrarCliente extends javax.swing.JInternalFrame {
             String clave=li.getKey();
             Cliente valor=li.getValue();
             
-        
+        if(valor==null){
+            JOptionPane.showMessageDialog(this,"No se encuentran datos");
+        }else{
         jtTelefono.setText(clave);
         jtApellido.setText(valor.getApellido());
         jtNombre.setText(valor.getNombre());
         jtCiudad.setText(valor.getCiudad());
         
-        
+//       
+        }
         
     }//GEN-LAST:event_jbBuscarActionPerformed
      

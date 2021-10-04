@@ -94,6 +94,12 @@ public class AgregarCliente extends javax.swing.JInternalFrame {
             }
         });
 
+        jtTelefono.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtTelefonoFocusLost(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -226,6 +232,17 @@ public class AgregarCliente extends javax.swing.JInternalFrame {
             jtDni.requestFocus();
         }
     }//GEN-LAST:event_jtDniFocusLost
+
+    private void jtTelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtTelefonoFocusLost
+        try{
+             long x=Long.parseLong(jtTelefono.getText());
+        
+        }catch(NumberFormatException nf){
+        
+            JOptionPane.showMessageDialog(this, "Debe ingresar un numero");
+            jtTelefono.requestFocus();
+        }
+    }//GEN-LAST:event_jtTelefonoFocusLost
 
      private void limpiar(){
     

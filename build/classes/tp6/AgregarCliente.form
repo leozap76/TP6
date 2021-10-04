@@ -214,6 +214,9 @@
     <Component class="javax.swing.JTextField" name="jtCiudad">
     </Component>
     <Component class="javax.swing.JTextField" name="jtTelefono">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jtTelefonoFocusLost"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

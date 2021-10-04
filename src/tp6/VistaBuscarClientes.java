@@ -172,6 +172,19 @@ public class VistaBuscarClientes extends javax.swing.JInternalFrame {
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
       
+        
+        String tel=jtTelefono.getText();
+        Cliente c= Interfaz.getDirectorio().buscarCliente(tel);
+        
+        if(c==null){
+            JOptionPane.showMessageDialog(this,"No se encuentran datos");
+        }else{
+        
+        jtDni.setText(c.getDni());
+        jtApellido.setText(c.getApellido());
+        jtNombre.setText(c.getNombre());
+        jtCiudad.setText(c.getCiudad());
+        
         try{
              long x=Long.parseLong(jtTelefono.getText());
         
@@ -180,18 +193,7 @@ public class VistaBuscarClientes extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "El Cliente no se encuentra");
             
         }
-        String tel=jtTelefono.getText();
-        Cliente c= Interfaz.getDirectorio().buscarCliente(tel);
-        
-        
-        
-        jtDni.setText(c.getDni());
-        jtApellido.setText(c.getApellido());
-        jtNombre.setText(c.getNombre());
-        jtCiudad.setText(c.getCiudad());
-        
-        
-        
+        }
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void limpiar(){
