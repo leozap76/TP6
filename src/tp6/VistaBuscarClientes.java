@@ -185,14 +185,6 @@ public class VistaBuscarClientes extends javax.swing.JInternalFrame {
         jtNombre.setText(c.getNombre());
         jtCiudad.setText(c.getCiudad());
         
-        try{
-             long x=Long.parseLong(jtTelefono.getText());
-        
-        }catch(NullPointerException np){
-        
-            JOptionPane.showMessageDialog(this, "El Cliente no se encuentra");
-            
-        }
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
 

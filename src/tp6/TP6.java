@@ -30,27 +30,16 @@ public class TP6 {
         d1.agregarCliente("412476", c3);
         d1.agregarCliente("234147", c4);
         d1.agregarCliente("241479", c5);
-        //d1.agregarCliente(234273, c5);
-        
-        //d1.agregarCliente(332487, c4);
-        
-        //d1.agregarCliente(934273, c4);
-        
-       //d1.buscarCliente(234273);
-       d1.buscarTelefono("zapata");
        
-       d1.buscarClientes("Crespo");
-       d1.borrarCliente("234273");
-       d1.buscarClienteDni("25032406");
-       //d1.buscarCliente("Parana");
         
-        
-        
-        
-            
-        
-        //System.out.println(d1);
-        
+       //System.out.println(d1.buscarCliente("234273"));//busca telefono devuelve Cliente
+       //System.out.println(d1.buscarTelefono("zapata"));// busca apellido devuelte telefonos
+      //System.out.println(d1.buscarClientes("Crespo")); //busca ciudad devuelve Cliente
+                    d1.borrarClientexDni("13214147"); //
+                    // d1.borrarCliente("13214147"); ///busca dni y borra Cliente
+           
+       System.out.println(d1.buscarCliente("234296"));//busca telefono devuelve Cliente
+          
     }
     
 }

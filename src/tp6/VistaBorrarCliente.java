@@ -163,8 +163,9 @@ public class VistaBorrarCliente extends javax.swing.JInternalFrame {
     private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
       // TODO add your handling code here:
       
-        String clave=jtTelefono.getText();
-        Interfaz.getDirectorio().borrar2(clave);
+        String dni=jtDni.getText();
+        Interfaz.getDirectorio().borrarClientexDni(dni);
+        
         JOptionPane.showMessageDialog(null,"El cliente se ha borrado correctamente");
         limpiar();
       
@@ -199,7 +200,7 @@ public class VistaBorrarCliente extends javax.swing.JInternalFrame {
         jtNombre.setText(valor.getNombre());
         jtCiudad.setText(valor.getCiudad());
         
-//       
+     
         }
         
     }//GEN-LAST:event_jbBuscarActionPerformed

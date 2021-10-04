@@ -12,27 +12,23 @@ public class Directorio {
     dir=new TreeMap<>();    
     
     }
+   
+    public void setDir(Map<String, Cliente> dir) {
+        this.dir = dir;
+    }
     
     public boolean agregarCliente (String tel,Cliente cl){
         if(dir.containsKey(tel)){
             return false;
         }else{
             dir.put(tel, cl);
-            return true;
-        
+            return true;     
         }
     }
     
-    public Cliente buscarCliente(String tel){ //busca por telefono y devuelve cliente
-        
-        return dir.get(tel);
-        
+    public Cliente buscarCliente(String tel){ //busca por telefono y devuelve cliente   
+        return dir.get(tel);        
     }
-
-    public void setDir(Map<String, Cliente> dir) {
-        this.dir = dir;
-    }
-    
     
     
     
@@ -56,30 +52,8 @@ public class Directorio {
         }
        
     }
- 
-    public Map buscarClienteDni(String dni){ //busca por dni y devuelve cliente
-        //hacer lista de clientes
-        
-        Map<String,Cliente>listaxDni = new HashMap<>();
-       
-
-          
-        
-        for(Map.Entry<String,Cliente>e:dir.entrySet()){
-            String k=e.getKey();
-            Cliente v=e.getValue();
-            
-            if(v.getDni().equalsIgnoreCase(dni)){
-                listaxDni.put(k, v);
-              
-        }    
-        }
-        
-        
-          return listaxDni;
-    }
-      
-    public List<Cliente> buscarClientes(String c){ //pasamos ciudad y nos devuelve una lista con clientes
+    
+     public List<Cliente> buscarClientes(String c){ //pasamos ciudad y nos devuelve una lista con clientes
         
         
         ArrayList<Cliente>listaxC=new ArrayList<>();
@@ -95,38 +69,61 @@ public class Directorio {
          return listaxC;
     }
      
-      public boolean borrar2(String clave){
-        return dir.remove(clave)!=null;
-    }
-    
-    public boolean borrarCliente(String dni){
-        return dir.remove(dni) !=null;
-    }
-    
-    @SuppressWarnings("empty-statement")
-    
-    public TreeMap borrarClientexDni(String dni){
+     public TreeMap borrarClientexDni(String dni){ //lo queria hacer un void pero me tiraba error ConcurrentModificationException
     
         TreeMap<String,Cliente> borrarClientes=new TreeMap<>();    
         Set<String> dnik=dir.keySet();
         
+                
         for(String it:dnik){
-            Cliente c=dir.get(it);
-        if(c.getDni()==dni){
-            borrarClientes.put(it, c);
+           Cliente c=dir.get(it);
+        if( c.getDni() == null ? dni == null : c.getDni().equals(dni)){
+           borrarClientes.put(it, c);
             dir.remove(it);
-            return borrarClientes;
+           return borrarClientes;
         }
             
         }
-        return null;
+       return null;
     }
-
-    
-    @Override
+     
+     public boolean borrarCliente(String dni){
+        return dir.remove(dni) !=null;
+    }
+     
+     @Override
     public String toString() {
         return "Directorio{" + "Datos=" + dir + "}\r";
         
     }
   
+   
+     
+    //////////////////////////////////////////////////////////// 
+     
+     
+ 
+    public Map buscarClienteDni(String dni){ //busca por dni y devuelve client
+        
+        Map<String,Cliente>listaxDni = new HashMap<>();
+          for(Map.Entry<String,Cliente>e:dir.entrySet()){
+            String k=e.getKey();
+            Cliente v=e.getValue();
+            
+            if(v.getDni().equalsIgnoreCase(dni)){
+                listaxDni.put(k, v);
+              
+             }    
+        }
+        
+        
+          return listaxDni;
+    }
 }
+  
+    
+    
+
+    
+    
+
