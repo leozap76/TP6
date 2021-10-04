@@ -32,13 +32,11 @@ public class TP6 {
         d1.agregarCliente("241479", c5);
        
         
-       //System.out.println(d1.buscarCliente("234273"));//busca telefono devuelve Cliente
-       //System.out.println(d1.buscarTelefono("zapata"));// busca apellido devuelte telefonos
-      //System.out.println(d1.buscarClientes("Crespo")); //busca ciudad devuelve Cliente
-                    d1.borrarClientexDni("13214147"); //
-                    // d1.borrarCliente("13214147"); ///busca dni y borra Cliente
-           
-       System.out.println(d1.buscarCliente("234296"));//busca telefono devuelve Cliente
+       System.out.println(d1.buscarCliente("234273"));//busca telefono devuelve Cliente
+       System.out.println(d1.buscarTelefono("zapata"));// busca apellido devuelte telefonos
+       System.out.println(d1.buscarClientes("Crespo")); //busca ciudad devuelve Cliente
+       d1.borrarClientexDni("13214147"); // buscar dni y borra cliente
+       System.out.println(d1.buscarCliente("234296"));// verificamos que el cliente borrado no exista
           
     }
     

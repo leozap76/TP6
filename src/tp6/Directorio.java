@@ -97,13 +97,15 @@ public class Directorio {
         
     }
   
-   
+
      
     //////////////////////////////////////////////////////////// 
      
      
  
-    public Map buscarClienteDni(String dni){ //busca por dni y devuelve client
+    public Map buscarClienteDni(String dni){ //busca por dni y devuelve Cliente
+                                             // Lo agregue para que me devuelva los datos en la 
+                                             // Vista de borrar clientes
         
         Map<String,Cliente>listaxDni = new HashMap<>();
           for(Map.Entry<String,Cliente>e:dir.entrySet()){
@@ -112,16 +114,15 @@ public class Directorio {
             
             if(v.getDni().equalsIgnoreCase(dni)){
                 listaxDni.put(k, v);
-              
+             
              }    
         }
-        
-        
+   
           return listaxDni;
     }
-}
+
   
-    
+}
     
 
     

@@ -27,10 +27,6 @@ public class Cliente {
     public Cliente() {
     }
 
-  
-
-    
-
     public String getDni() {
         return dni;
     }
@@ -76,7 +72,4 @@ public class Cliente {
         return "Cliente{" + "dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", ciudad=" + ciudad + ", direccion=" + direccion + '}';
     }
 
-    
-   
-   
 }
