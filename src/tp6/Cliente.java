@@ -10,13 +10,13 @@ package tp6;
  * @author Leonardo
  */
 public class Cliente {
-   long dni;
+   private String dni;
    private String nombre;
    private String apellido;
    private String ciudad;
    private String direccion;
 
-    public Cliente(long dni, String nombre, String apellido, String ciudad, String direccion) {
+    public Cliente(String dni, String nombre, String apellido, String ciudad, String direccion) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -24,13 +24,18 @@ public class Cliente {
         this.direccion = direccion;
     }
 
+    public Cliente() {
+    }
+
+  
+
     
 
-    public long getDni() {
+    public String getDni() {
         return dni;
     }
 
-    public void setDni(long dni) {
+    public void setDni(String dni) {
         this.dni = dni;
     }
 

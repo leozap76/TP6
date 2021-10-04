@@ -9,7 +9,20 @@ package tp6;
  *
  * @author Leonardo
  */
-public class Interfaz extends javax.swing.JFrame {
+    public class Interfaz extends javax.swing.JFrame {
+
+        
+        
+        
+        
+        private static Directorio dir=new Directorio();
+    
+ 
+    public static Directorio getDirectorio(){
+        return dir;
+    }
+    
+    
 
     /**
      * Creates new form Interfaz
@@ -63,7 +76,7 @@ public class Interfaz extends javax.swing.JFrame {
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 262, Short.MAX_VALUE)
+            .addGap(0, 441, Short.MAX_VALUE)
         );
 
         jmCliente.setText("Clientes");
@@ -77,9 +90,19 @@ public class Interfaz extends javax.swing.JFrame {
         jmCliente.add(jmAgregarCliente);
 
         jmBuscarCliente.setText("Buscar Cliente");
+        jmBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmBuscarClienteActionPerformed(evt);
+            }
+        });
         jmCliente.add(jmBuscarCliente);
 
         jmBorrarCliente.setText("Borrar Cliente");
+        jmBorrarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmBorrarClienteActionPerformed(evt);
+            }
+        });
         jmCliente.add(jmBorrarCliente);
 
         Salir.add(jmCliente);
@@ -144,6 +167,22 @@ public class Interfaz extends javax.swing.JFrame {
     private void jmSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmSalirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jmSalirActionPerformed
+
+    private void jmBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmBuscarClienteActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        VistaBuscarClientes vbc=new VistaBuscarClientes();
+        vbc.setVisible(true);
+        escritorio.add(vbc);
+    }//GEN-LAST:event_jmBuscarClienteActionPerformed
+
+    private void jmBorrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmBorrarClienteActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        VistaBorrarCliente vbc=new VistaBorrarCliente();
+        vbc.setVisible(true);
+        escritorio.add(vbc);
+    }//GEN-LAST:event_jmBorrarClienteActionPerformed
 
     /**
      * @param args the command line arguments

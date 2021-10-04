@@ -5,6 +5,8 @@
  */
 package tp6;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Leonardo
@@ -61,6 +63,11 @@ public class AgregarCliente extends javax.swing.JInternalFrame {
         jLabel6.setText("TELEFONO:");
 
         jbNuevo.setText("Nuevo");
+        jbNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoActionPerformed(evt);
+            }
+        });
 
         jbGuardar.setText("Guardar");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -70,11 +77,22 @@ public class AgregarCliente extends javax.swing.JInternalFrame {
         });
 
         jbSalir.setText("Salir");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel7.setFont(new java.awt.Font("Arial Unicode MS", 1, 14)); // NOI18N
         jLabel7.setText("Agregar Clientes");
+
+        jtDni.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtDniFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -164,9 +182,60 @@ public class AgregarCliente extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
-        // TODO add your handling code here:
+        
+        String dni=jtDni.getText();
+        String nombre=jtNombre.getText();
+        String apellido=jtApellido.getText();
+        String ciudad=jtCiudad.getText();
+        String domicilio=jtDomicilio.getText();
+        String tel=jtTelefono.getText();
+        
+        
+        Cliente c=new Cliente(dni,nombre,apellido,ciudad,domicilio);
+        
+         //guardar
+         
+         
+       if(Interfaz.getDirectorio().agregarCliente(tel, c)){
+        
+            JOptionPane.showMessageDialog(this, "Cliente Agregado");
+        }else {
+        
+            JOptionPane.showMessageDialog(this, "Cliente ya existente");
+        }
+        limpiar();
+         
+        
     }//GEN-LAST:event_jbGuardarActionPerformed
 
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+     dispose();
+    }//GEN-LAST:event_jbSalirActionPerformed
+
+    private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
+       limpiar();
+    }//GEN-LAST:event_jbNuevoActionPerformed
+
+    private void jtDniFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtDniFocusLost
+       try{
+             long x=Long.parseLong(jtDni.getText());
+        
+        }catch(NumberFormatException nf){
+        
+            JOptionPane.showMessageDialog(this, "Debe ingresar un numero");
+            jtDni.requestFocus();
+        }
+    }//GEN-LAST:event_jtDniFocusLost
+
+     private void limpiar(){
+    
+        jtDni.setText("");
+        jtNombre.setText("");
+        jtApellido.setText("");
+        jtCiudad.setText("");
+        jtDomicilio.setText("");
+        jtTelefono.setText("");
+     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
